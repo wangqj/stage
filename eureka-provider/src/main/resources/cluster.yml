@@ -1,0 +1,24 @@
+---
+spring:
+  profiles: registry1
+eureka:
+  instance:
+    hostname: registry1
+  client:
+    serviceUrl:
+      defaultZone: http://registry2/eureka/
+
+---
+spring:
+  profiles: registry2
+eureka:
+  instance:
+    hostname: registry2
+  client:
+    serviceUrl:
+      defaultZone: http://registry1/eureka/
+
+eureka:
+   client:
+      service-url:
+      default-zone:http://registry1:10001/eureka,http://registry2:10002/eureka

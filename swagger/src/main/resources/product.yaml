@@ -1,0 +1,77 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Swagger构建RESTful API
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: product-controller
+    description: Product Controller
+paths:
+  /products:
+    get:
+      tags:
+        - product-controller
+      summary: 获取产品列表
+      description: 获取产品列表
+      operationId: getProductListUsingGET
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+
+  /products/{id}:
+    get:
+      tags:
+        - product-controller
+      summary: 获取产品详细信息
+      description: 根据url的id来获取产品详细信息
+      operationId: getProductUsingGET
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: 产品ID
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Product'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+definitions:
+  Product:
+    type: object
+    properties:
+      count:
+        type: integer
+        format: int32
+      desc:
+        type: string
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string

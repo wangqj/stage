@@ -1,0 +1,14 @@
+server:
+  port: 10002 #定义端口
+spring:
+  application:
+    name: provider
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10001/eureka
+  instance:
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health
+    metadataMap:
+      instanceId: ${spring.application.name}:${random.value}

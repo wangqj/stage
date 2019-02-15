@@ -1,0 +1,17 @@
+syntax = "proto3";//声明支持的版本是proto3
+
+option java_package = "com.cloudnative.protobuf";//声明包名，可选
+option java_outer_classname="ProductProtos";//声明类名，可选
+
+message Product {
+
+    int32 id = 1;
+    string name  = 2;
+    string price = 3;
+
+    enum ColorType {//定义枚举类型
+        WHITE = 0;
+        RED = 1;
+        BLACK = 2;
+    }
+}

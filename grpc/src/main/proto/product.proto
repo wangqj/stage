@@ -1,0 +1,20 @@
+syntax = "proto3";//声明支持的版本是proto3
+
+option java_multiple_files = true;//以外部类模式生成
+option java_package = "com.cloudnative.grpc";//声明包名，可选
+option java_outer_classname="ProductProtos";//声明类名，可选
+
+
+
+message ProductRequest{
+    int32 id = 1;
+}
+message ProductResponse {
+    int32 id = 1;
+    string name  = 2;
+    string price = 3;
+}
+
+service ProductService{
+    rpc GetProduct(ProductRequest) returns(ProductResponse);
+}

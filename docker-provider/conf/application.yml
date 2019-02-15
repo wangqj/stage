@@ -1,0 +1,16 @@
+server:
+  port: 10004 #定义端口
+spring:
+  application:
+    name: docker-provider
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:10001/eureka
+  instance:
+    hostname: service-a
+    prefer-ip-address: true
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health
+    metadataMap:
+      instanceId: ${spring.application.name}:${random.value}

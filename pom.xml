@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cloudnative</groupId>
+    <artifactId>stage</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>rpcserver</module>
+        <module>rpcclient</module>
+        <module>grpc</module>
+        <module>swagger</module>
+        <module>common</module>
+        <module>springclouddemo</module>
+        <module>eureka-provider</module>
+        <module>eurekaconsumer</module>
+        <module>docker-provider</module>
+        <module>dockerereka</module>
+        <module>prometheus</module>
+    </modules>
+
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.3</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+</project>
